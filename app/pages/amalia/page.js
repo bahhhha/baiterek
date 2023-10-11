@@ -154,7 +154,7 @@ const AmaliaBot = () => {
 	}, [audioUrl]);
 
 	return (
-		<div className="flex flex-col items-center relative lg:top-0 top-16 rounded-lg py-2 h-full max-w-full lg:max-w-[720px] m-auto">
+		<div className="flex flex-col   items-center relative lg:top-0 top-24 rounded-lg py-2 h-full max-w-full lg:max-w-[720px] m-auto">
 			{isVideoPlaying ? (
 				<video
 					ref={videoRef}
@@ -204,7 +204,7 @@ const AmaliaBot = () => {
 				)}
 				<div ref={chatEndRef} />
 			</div>
-			<div className="z-1 absolute lg:bottom-28 top-[380px] px-4 py-2 border-t flex flex-col items-center rounded-b-lg border-gray-200 drop-shadow-md bg-white w-[280px] m-auto">
+			<div className="z-1 absolute lg:bottom-28 top-[480px] px-4 py-2 border-t flex flex-col items-center rounded-b-lg border-gray-200 drop-shadow-md bg-white w-[280px] m-auto">
 				<input
 					type="text"
 					placeholder="Скажите Амалии что-нибудь..."

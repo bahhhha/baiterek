@@ -621,6 +621,15 @@ video {
 .top-\[380px\] {
   top: 380px;
 }
+.top-\[480px\] {
+  top: 480px;
+}
+.top-4 {
+  top: 1rem;
+}
+.top-24 {
+  top: 6rem;
+}
 .m-16 {
   margin: 4rem;
 }
