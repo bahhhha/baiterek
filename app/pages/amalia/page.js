@@ -5,10 +5,11 @@ import SpeechRecognition, {
 	useSpeechRecognition,
 } from "react-speech-recognition";
 import { useState, useRef, useEffect } from "react";
+import Head from 'next/head'
 import axios from "axios";
 import TypingIndicator from "@/app/components/TypingIndicator";
 import { motion, AnimatePresence } from "framer-motion";
-
+import Image from 'next/image';
 const AmaliaBot = () => {
 	const [audioUrl, setAudioUrl] = useState(null);
 	const [query, setQuery] = useState("");
@@ -154,6 +155,10 @@ const AmaliaBot = () => {
 	}, [audioUrl]);
 
 	return (
+		<div>
+			 <Head>
+        <link rel="preload" href="/AmaliaSpeaking.mp4" as="video" type="video/mp4" />
+      </Head>
 		<div className="flex flex-col   items-center relative lg:top-0 top-24 rounded-lg py-2 h-full max-w-full lg:max-w-[720px] m-auto">
 			{isVideoPlaying ? (
 				<video
@@ -168,11 +173,14 @@ const AmaliaBot = () => {
 					/>
 				</video>
 			) : (
-				<img
-					src="/images/amaliachat.png"
-					alt="Amalia"
-					className="w-3/4 lg:w-96 max-h-1/4 lg:max-h-1/3 absolute mt-2 lg:mt-4 object-cover drop-shadow-xl"
-				/>
+				<Image
+    src="/images/amaliachat.png"
+    alt="Amalia"
+    width={480}
+    height={480}
+    className="w-3/4 lg:w-96 max-h-1/4 lg:max-h-1/3 absolute mt-2 lg:mt-4 object-cover drop-shadow-xl"
+/>
+				
 			)}
 			<div className="z-1 w-full lg:min-w-[720px] absolute top-[180px] lg:bottom-[240px] flex-1 overflow-y-auto p-4 space-y-4 max-h-[200px] lg:max-h-[400px]">
 				{chat.map((message, idx) => (
@@ -242,6 +250,7 @@ const AmaliaBot = () => {
 					)}
 				</div>
 			</div>
+		</div>
 		</div>
 	);
 };
