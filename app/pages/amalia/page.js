@@ -154,13 +154,13 @@ const AmaliaBot = () => {
 	}, [audioUrl]);
 
 	return (
-		<div className="flex items-center relative lg:top-0 top-48 rounded-lg py-2 h-full flex-col max-w-[720px] m-auto">
+		<div className="flex flex-col items-center relative lg:top-0 top-16 rounded-lg py-2 h-full max-w-full lg:max-w-[720px] m-auto">
 			{isVideoPlaying ? (
 				<video
 					ref={videoRef}
 					autoPlay
 					muted
-					className="w-80 scale-[120%] ml-12 mt-24 absolute max-h-1/3"
+					className="w-3/4 lg:w-80 scale-100 mb-24 lg:scale-[120%] ml-0 lg:ml-12 lg:mt-24 absolute max-h-1/4 lg:max-h-1/3"
 				>
 					<source
 						src="/AmaliaSpeaking.mp4"
@@ -171,10 +171,10 @@ const AmaliaBot = () => {
 				<img
 					src="/images/amaliachat.png"
 					alt="Amalia"
-					className="w-96 max-h-1/3 mt-4 object-cover drop-shadow-xl"
+					className="w-3/4 lg:w-96 max-h-1/4 lg:max-h-1/3 absolute mt-2 lg:mt-4 object-cover drop-shadow-xl"
 				/>
 			)}
-			<div className="min-w-[720px] absolute lg:bottom-[240px] flex-1 overflow-y-auto p-4 space-y-4 max-h-[400px]">
+			<div className="z-1 w-full lg:min-w-[720px] absolute top-[180px] lg:bottom-[240px] flex-1 overflow-y-auto p-4 space-y-4 max-h-[200px] lg:max-h-[400px]">
 				{chat.map((message, idx) => (
 					<motion.div
 						key={idx}
@@ -182,9 +182,7 @@ const AmaliaBot = () => {
 						animate="visible"
 						variants={messageVariants}
 						className={`flex ${
-							message.type === "user"
-								? "justify-end"
-								: "justify-start"
+							message.type === "user justify-start"
 						}`}
 					>
 						<div
@@ -206,7 +204,7 @@ const AmaliaBot = () => {
 				)}
 				<div ref={chatEndRef} />
 			</div>
-			<div className="absolute lg:bottom-24 bottom-2 px-4 py-2 border-t flex flex-col items-center rounded-b-lg border-gray-200 drop-shadow-md bg-white w-[480px] m-auto">
+			<div className="z-1 absolute lg:bottom-28 top-[380px] px-4 py-2 border-t flex flex-col items-center rounded-b-lg border-gray-200 drop-shadow-md bg-white w-[280px] m-auto">
 				<input
 					type="text"
 					placeholder="Скажите Амалии что-нибудь..."
@@ -220,7 +218,7 @@ const AmaliaBot = () => {
 					}
 					disabled={isLoading}
 				/>
-				<div className="flex justify-center pb-8">
+				<div className="flex justify-center pb-4 lg:pb-8">
 					<button
 						onClick={handleListenClick}
 						className={`mt-4 p-4 rounded-xl duration-150 ${
